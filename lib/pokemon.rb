@@ -10,12 +10,11 @@ attr_reader :id
     @db = db
   end
 
+  def self.save(name, type, db)
+    db.execute("insert into pokemon (name, type) values (?, ?)", name, type)
+  end
 
+  def self.find
 
-
-
-
-
-
-
+  end
 end
