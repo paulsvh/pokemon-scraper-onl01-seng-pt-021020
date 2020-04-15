@@ -17,6 +17,6 @@ attr_reader :id
   def self.find(id, db)
     poke = db.execute("select * from pokemon where id = ?", id)
     found_poke = self.new(id: poke[0], name: poke[1], type: poke[2], db: db)
-    
+
   end
 end
