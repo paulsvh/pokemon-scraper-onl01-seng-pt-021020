@@ -14,7 +14,9 @@ attr_reader :id
     db.execute("insert into pokemon (name, type) values (?, ?)", name, type)
   end
 
-  def self.find
-
+  def self.find(id, db)
+    poke = db.execute("select * from pokemon where id = ?", id)
+    found_poke = self.new(id: poke[0], name: poke[1], type: poke[2], db: db)
+    found_poke
   end
 end
